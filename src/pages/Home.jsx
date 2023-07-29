@@ -49,7 +49,6 @@ const Home = () => {
 
       const result = await request("https://api-ap-southeast-2.hygraph.com/v2/clkgnwzex6dki01t420aqfil3/master", query);
 
-
       const final =  result.postsConnection.edges;
       
       setProducts(final);
