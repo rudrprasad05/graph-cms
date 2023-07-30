@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 import { gql,request } from 'graphql-request';
 
 const PostWidget = ({ catergories, slug}) => {
-
+  
   const [recentPosts, setRecentPosts] = useState(null);
   const [relatedPosts, setRelatedPosts] = useState(null)
 
@@ -20,6 +20,7 @@ const PostWidget = ({ catergories, slug}) => {
         .then((result) => setRecentPosts(result))
       
     }
+
   }, [slug])
 
   const getRecentPosts = async() => {
@@ -46,22 +47,20 @@ const PostWidget = ({ catergories, slug}) => {
 
   const getSimilarPosts = async(catergories, slug) => {
     const query = gql`
-      query GetPostDetails($slug: String!, %catergories: [String!]){
-        posts(
-          where: { slug:not $slug, AND: {catergories_some: {slug_in: $catergories}}}
-          last: 3
-        ){
-          title
-          featuredImage {
-            url
-          }
-          createdAt
-          slug
+    query MyQuery ($slug: String!, $catergories: [String!]){
+      posts(where: { slug_not: $slug, AND: { catergories_some: { slug_in: $catergories } } } ){
+        title
+        createdAt
+        featuredImage {
+          url
         }
+        slug
       }
+    }
     `
-    const result = await request("https://api-ap-southeast-2.hygraph.com/v2/clkgnwzex6dki01t420aqfil3/master", query);
+    const result = await request("https://api-ap-southeast-2.hygraph.com/v2/clkgnwzex6dki01t420aqfil3/master", query, {catergories, slug});
     const final =  result.posts;
+
     return final
   }
   
@@ -70,6 +69,20 @@ const PostWidget = ({ catergories, slug}) => {
     <div className='rounded-md bg-gray-200  py-5 shadow-lg mb-5'>
       <h3 className='px-8'>{slug ? "Related Posts": "Recent Posts"}</h3>
       {recentPosts && recentPosts.map((post) => (
+        <div key={post.slug} className="w-4/5 mx-auto bg-white">
+          <div>
+            <img 
+              src={post.featuredImage.url} 
+              alt={post.title} />
+          </div>
+          <div>
+            {post.title}
+          </div>
+          
+        </div>
+      ))}
+
+      {relatedPosts && relatedPosts.map((post) => (
         <div key={post.slug} className="w-4/5 mx-auto bg-white">
           <div>
             <img 
