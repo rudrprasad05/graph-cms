@@ -14,7 +14,7 @@ const PostCard = ({post}) => {
       </div>
 
       <div className=''>
-        <Link to={`/post/${post.node.slug}`}>
+        <Link to={`/blog/${post.node.slug}`}>
           <p className='capitalize'>{post.node.title}</p>
         </Link>
 
@@ -23,7 +23,7 @@ const PostCard = ({post}) => {
         <p>Author: {post.node.author.name}</p>
         <p>Date: {moment(post.node.createdAt).format("DD MMM YYYY")}</p>
 
-        <Link to={`/post/${post.node.slug}`}>Continue Reading</Link>
+        <Link to={`/blog/${post.node.slug}`}>Continue Reading</Link>
       </div>
       
     </div>
