@@ -68,8 +68,8 @@ const Blogs = () => {
             <div className='col-span-8'>
               <PostDetails post={post}/>
               <Author author={post.author}/>
-              <CommentsForm/>
-              <Comments/>
+              <CommentsForm slug={post.slug}/>
+              <Comments slug={post.slug}/>
             </div>
             <div className='col-span-4'>
               <div className='relative sticky top-8'>

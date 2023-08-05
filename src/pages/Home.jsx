@@ -63,17 +63,22 @@ const Home = () => {
         title='Home'
       />
 
-      <div className="grid grid-cols-12 w-4/5 mx-auto gap-10">
-          <div className="col-span-8">
-          {products && products.map((post, index) => <PostCard post={post} key={index}/> )}
-          </div>
-          <div className="col-span-4">
-          <div className="sticky relative top-8">
-              <PostWidget/>
-              <Catergories/>
+      <div className="grid grid-cols-10 w-4/5 mx-auto gap-16">
+
+          <div className="col-span-6 h-full">
+            {products && products.slice(0, 1).map((post, index) => <PostCard post={post} key={index}/> )}
           </div>
 
+          <div className="col-span-4 grid grid-rows-2 gap-10">
+            <div className='row-span-1'>
+              {products && products.slice(1, 2).map((post, index) => <PostCard post={post} key={index}/> )}
+            </div>
+            <div className='row-span-1'>
+            {products && products.slice(2, 3).map((post, index) => <PostCard post={post} key={index}/> )}
+            </div>
+            
           </div>
+          
       </div>
     </>
     
