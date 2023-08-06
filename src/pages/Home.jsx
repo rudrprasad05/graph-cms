@@ -8,6 +8,7 @@ import { useState } from 'react'
 
 import  { request, gql } from 'graphql-request'
 import { Helmet } from 'react-helmet'
+import Carosel from '../components/Carosel'
 
 const Home = () => {
 
@@ -80,6 +81,8 @@ const Home = () => {
           </div>
           
       </div>
+
+      <Carosel/>
     </>
     
     
