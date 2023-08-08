@@ -1,14 +1,15 @@
 import React from 'react'
 import PostCard from '../components/PostCard'
-import Catergories from "../components/Catergories"
-import PostWidget from "../components/PostWidget"
+import Carosel from '../components/Carosel'
+import FeaturedPosts from '../components/FeaturedPosts'
 
 import { useEffect } from 'react'
 import { useState } from 'react'
 
 import  { request, gql } from 'graphql-request'
 import { Helmet } from 'react-helmet'
-import Carosel from '../components/Carosel'
+
+
 
 const Home = () => {
 
@@ -42,6 +43,7 @@ const Home = () => {
                 name
                 slug
               }
+              isFeatured
             }
           }
         }
@@ -51,6 +53,7 @@ const Home = () => {
       const result = await request("https://api-ap-southeast-2.hygraph.com/v2/clkgnwzex6dki01t420aqfil3/master", query);
 
       const final =  result.postsConnection.edges;
+      
       
       setProducts(final);
     };
@@ -82,7 +85,15 @@ const Home = () => {
           
       </div>
 
+
       <Carosel/>
+
+      <p className='text-4xl pb-5 w-4/5 mx-auto'>Featured Blogs</p>
+      {products && products.map((post, index) => 
+      (<div>
+        {post.node.isFeatured ? <FeaturedPosts post={post}/> : <p></p>}
+      </div>)
+      )}
     </>
     
     

@@ -40,12 +40,43 @@ const Carosel = () => {
   return (
     <>
 
-<div className="App">
-      <h1>React multi carousel</h1>
-      <Carousel showDots={true} responsive={responsive} className="w-4/5 mx-auto">
-        {product}
-      </Carousel>
-    </div>
+      <div className="App">
+
+        {/* carousel */}
+        <div className="w-4/5 mx-auto my-20">
+          <p className='text-4xl pb-5'>Browse Our Categories</p>
+          <Carousel 
+            additionalTransfrom={0}
+            renderArrowsWhenDisabled={false}
+            renderButtonGroupOutside={false}
+            renderDotsOutside={false}
+            autoPlaySpeed={3000}
+            centerMode={false}
+
+            containerClass="container"
+            dotListClass=""
+            draggable
+            focusOnSelect={true}
+            infinite={true}
+            itemClass=""
+            keyBoardControl
+            minimumTouchDrag={80}
+            pauseOnHover
+            responsive={responsive}
+            rewind={false}
+            rewindWithAnimation={false}
+            rtl={false}
+            shouldResetAutoplay
+            showDots={true}
+            sliderClass=""
+            slidesToSlide={1}
+            swipeable
+          >
+            {product}
+          </Carousel>
+        </div>
+      
+      </div>
 
     </>
   )

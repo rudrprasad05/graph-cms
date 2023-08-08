@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
+import moment from 'moment'
+import {HiOutlineCalendar} from 'react-icons/hi'
 
 const PostDetails = ({ post }) => {
 
@@ -77,34 +79,50 @@ const PostDetails = ({ post }) => {
         }
       };
     
-    useEffect(() => {
     
-    }, [])
   return (
     <div>
         {post && (
             <div key={post.slug}>
 
-                {/* title section */}
-                <div>
-                    <div>
-                        <img src={post.featuredImage.url} alt="" />
-                    </div>
-                    <div>
-                        {post.title}
-                    </div>
-                </div>
-                
-                {/* content section */}
+              {/* title section */}
+              <div>
+                  <div>
+                      <img src={post.featuredImage.url} alt="" className='shadow-md rounded-md'/>
+                  </div>
+                  <div className=' my-5 flex gap-5'>
+                    <div className='flex gap-2 items-center'>
+                        <div className='rounded-full border-2 border-blue-500'>
+                            <img src={post.author.photo.url} alt=""className='w-8 h-8 object-cover rounded-full' />
 
-                <div>
-                    {post.content.raw.children.map((typeObj, index) => {
-                        const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
+                        </div>
+                        
+                        <p className='italic text-gray-400'>{post.author.name}</p>
+                    </div>
+                    <div className='flex gap-2 items-center'>
+                        <span className='flex items-center justify-center'>
+                            <HiOutlineCalendar className='stroke-blue-500' size={20}/>
+                        </span>
+                        <span className='italic text-gray-400'>
+                            {moment(post.createdAt).format("DD MMM YYYY")} 
+                        </span>
+                    </div>
+                  </div>
+                  <div className='text-5xl text-blue-500'>
+                      {post.title}
+                  </div>
+              </div>
+              
+              {/* content section */}
 
-                        return getContentFragment(index, children, typeObj, typeObj.type);
-                    })}
-                </div>
-                
+              <div>
+                  {post.content.raw.children.map((typeObj, index) => {
+                      const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
+
+                      return getContentFragment(index, children, typeObj, typeObj.type);
+                  })}
+              </div>
+              
             </div>
         )}
         

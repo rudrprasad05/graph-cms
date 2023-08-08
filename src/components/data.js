@@ -1,22 +1,28 @@
 export const responsive = {
-    superLargeDesktop: {
-      // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 1024 },
-      items: 5,
-      slidesToSlide: 2,
+  desktop: {
+    breakpoint: {
+      max: 3000,
+      min: 1024
     },
-    desktop: {
-      breakpoint: { max: 1024, min: 800 },
-      items: 4,
+    items: 4,
+    partialVisibilityGutter: 40
+  },
+  mobile: {
+    breakpoint: {
+      max: 464,
+      min: 0
     },
-    tablet: {
-      breakpoint: { max: 800, min: 464 },
-      items: 2,
+    items: 1,
+    partialVisibilityGutter: 30
+  },
+  tablet: {
+    breakpoint: {
+      max: 1024,
+      min: 464
     },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-    },
+    items: 2,
+    partialVisibilityGutter: 30
+  }
   };
   
   export const productData = [

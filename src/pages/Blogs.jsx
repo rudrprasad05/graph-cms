@@ -63,14 +63,16 @@ const Blogs = () => {
   return (
     <>
       {post && 
-        <div>
-          <div className='grid grid-cols-12'>
+        <div className='w-4/5 mx-auto'>
+
+          <div className='grid grid-cols-12 gap-20'>
             <div className='col-span-8'>
               <PostDetails post={post}/>
-              <Author author={post.author}/>
-              <CommentsForm slug={post.slug}/>
-              <Comments slug={post.slug}/>
+              {/* <Author author={post.author}/> */}
+              {/* <CommentsForm slug={post.slug}/>
+              <Comments slug={post.slug}/> */}
             </div>
+
             <div className='col-span-4'>
               <div className='relative sticky top-8'>
                 {post && 
@@ -79,6 +81,7 @@ const Blogs = () => {
                 <Catergories />
               </div>
             </div>
+
           </div>
         </div>
       }
