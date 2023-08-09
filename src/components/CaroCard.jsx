@@ -18,7 +18,7 @@ export default function CaroCard({cat}) {
         <p className="pt-3 capotalize">{cat.name}</p>
       </div>
       
-      <Link to={`/categories/${cat.slug}`} className="bg-blue-500 rounded-lg w-min text-white whitespace-nowrap px-5 py-2 mx-auto mb-2">View Blogs</Link>
+      <Link to={`/category/${cat.slug}`} className="bg-blue-500 rounded-lg w-min text-white whitespace-nowrap px-5 py-2 mx-auto mb-2">View Blogs</Link>
   
   
     </div>

@@ -8,6 +8,7 @@ import Author from '../components/Author.jsx'
 import CommentsForm from '../components/CommentsForm.jsx'
 import Comments from '../components/Comments.jsx'
 import request, { gql } from 'graphql-request'
+import { Helmet } from 'react-helmet'
 
 const Blogs = () => {
 
@@ -62,6 +63,9 @@ const Blogs = () => {
     
   return (
     <>
+      <Helmet>
+        {post && <title>{post.title}</title>}
+      </Helmet>
       {post && 
         <div className='w-4/5 mx-auto'>
 

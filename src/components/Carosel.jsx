@@ -56,7 +56,7 @@ const Carosel = () => {
             containerClass="container"
             dotListClass=""
             draggable
-            focusOnSelect={true}
+            
             infinite={true}
             itemClass=""
             keyBoardControl

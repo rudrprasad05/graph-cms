@@ -5,7 +5,7 @@ import {HiCode} from 'react-icons/hi'
 
 const catergories = [
     {name: "react", slug: "react"},
-    {name: "web development", slug: "web-dev"}
+    {name: "HTML", slug: "html"}
 ]
 
 const Header = () => {
@@ -18,7 +18,7 @@ const Header = () => {
             </div>
             <div className='flex gap-10 capitalize text-xl'>
                 {catergories && catergories.map((catergory, index) => (
-                    <Link to={`/catergory/${catergory.slug}`} key={index}>
+                    <Link to={`/category/${catergory.slug}`} key={index}>
                         <span className='capitalize'>{catergory.name}</span>
                     </Link>
                 ))}

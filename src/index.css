@@ -30,6 +30,18 @@ bottom: -20px;
     animation: skeleton-loading 1s linear infinite alternate;
 }
 
+.caption{
+    font-style: italic;
+    text-align: right;
+    color: #797979;
+    margin: 12px 0 24px 0;
+}
+.in-line-link{
+    color: #3b82f6;
+    font-style: italic;
+    text-decoration: underline;
+}
+
 @keyframes skeleton-loading {
     0%{
         background-color: hsl(200, 20%, 70%);
