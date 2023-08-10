@@ -3,13 +3,14 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import { Helmet } from 'react-helmet'
-import { useParams } from 'react-router-dom'
+import { useParams, useSearchParams } from 'react-router-dom'
 import CategoryCards from '../components/CategoryCards'
 
 import { HiSearch } from 'react-icons/hi'
 
 const Categories = () => {
     const {id} = useParams()
+    const [searchParam, setSearchParam] = useSearchParams()
 
     const [categories, setCategories] = useState(null);
     const [search, setSearch] = useState("")
@@ -78,10 +79,10 @@ const Categories = () => {
                 <title>{id}</title>
             </Helmet>
             {!id ? (
-            <div className='w-4/5 mx-auto'>
+            <div className='w-4/5 mx-auto '>
               <h1 className='text-center text-5xl text-blue-500'>Categories</h1>
-              <div className='flex  mt-10 mb-5'>
-                <div className='flex grow gap-5 items-center'>
+              <div className='flex  mt-10 mb-5 '>
+                <div className='flex grow gap-5 items-center '>
                   <p>Tags: </p>
                   {categories && categories.catergories.map((item, index) => {
                     return(
@@ -126,6 +127,14 @@ const Categories = () => {
                 
               }).map((a, i) => <CategoryCards post={a} postKey={i}/>
               )}
+
+              {!id && categories && categories.posts.filter((item) => {
+                      
+                      const temptitle = item.title.toLowerCase()
+                      return search.toLowerCase() === "" ? item : temptitle.includes(search)
+                      
+                    }).map((a, i) => <CategoryCards post={a} postKey={i}/>
+                    )}
 
               {id && categories && categories.posts.filter((item) => {
               

@@ -8,39 +8,54 @@ const FeaturedPosts = ({post}) => {
 
     const selectIcon = (key) => {
         switch (key) {
-            case "HTML":
+            case "html":
                 return (
                 <div className='ml-2'>
-                    <DiHtml5 size={30}/>
-                    <div className='text-xs'>HTML</div>
+                    <Link to={'/category/html'}>
+                        <DiHtml5 size={30}/>
+                        <div className='text-xs'>HTML</div>
+                    </Link>
+                    
                 </div>
                 )
-            case "CSS": 
+            case "css": 
                 return(
                 <div className='ml-2'>
-                    <DiCss3 size={30}/>
-                    <div className='text-xs text-center'>CSS</div>
+                    <Link to={'/category/css'}>
+                        <DiCss3 size={30}/>
+                        <div className='text-xs text-center'>CSS</div>
+                    </Link>
+                    
                 </div>
                 ) 
-            case "Java": 
+            case "java": 
                 return(
                     <div className='ml-2'>
-                        <DiJava size={30}/>
-                        <div className='text-xs text-center'>Java</div>
+                        <Link to={'/category/java'}>
+                            <DiJava size={30}/>
+                            <div className='text-xs text-center'>Java</div>
+                        </Link>
+                        
                     </div>
                     ) 
             case "C++": 
                 return(
                     <div className='ml-2'>
-                        <DiCode size={30}/>
-                        <div className='text-xs text-center'>C++</div>
+                        <Link to={'/category/cplusplus'}>
+                            <DiCode size={30}/>
+                            <div className='text-xs text-center'>C++</div>
+                        </Link>
+                        
                     </div>
                     ) 
-            case "React": 
+            case "react": 
                 return(
                     <div className='ml-2'>
-                        <DiReact size={30}/>
-                        <div className='text-xs text-center'>React</div>
+                        <Link to={'/category/react'}>
+                           <DiReact size={30}/>
+                            <div className='text-xs text-center'>React</div> 
+                        </Link>
+                        
                     </div>
                     ) 
             
