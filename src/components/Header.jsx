@@ -17,11 +17,7 @@ const Header = () => {
                 <Link to='/'>DevLog</Link>
             </div>
             <div className='flex gap-10 capitalize text-xl'>
-                {catergories && catergories.map((catergory, index) => (
-                    <Link to={`/category/${catergory.slug}`} key={index}>
-                        <span className='capitalize'>{catergory.name}</span>
-                    </Link>
-                ))}
+                <Link to={'/category'}>Categories</Link>
             </div>
         </div>
     </nav>

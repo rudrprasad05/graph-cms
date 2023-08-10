@@ -18,7 +18,7 @@ const CategoryCards = ({post, postKey}) => {
 
         <div className='grow'>
 
-          <p className='text-3xl text-bolder py-2'>
+          <p className='text-3xl text-bolder py-2 w-full'>
             <Link to={`/blog/${post.slug}`}>{post.title}</Link>
           </p>
 

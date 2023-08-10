@@ -13,35 +13,35 @@ const Catergories = () => {
         case "HTML":
             return (
             <div>
-                <DiHtml5 size={30} className="mx-auto"/>
+                <DiHtml5 size={30} className="mx-auto stroke-blue-500"/>
                 <div className='text-xs'>HTML</div>
             </div>
             )
         case "CSS": 
             return(
             <div className=''>
-                <DiCss3 size={30} className="mx-auto"/>
+                <DiCss3 size={30} className="mx-auto stroke-blue-500"/>
                 <div className='text-xs text-center'>CSS</div>
             </div>
             ) 
         case "Java": 
             return(
                 <div className=''>
-                    <DiJava size={30} className="mx-auto"/>
+                    <DiJava size={30} className="mx-auto stroke-blue-500"/>
                     <div className='text-xs text-center'>Java</div>
                 </div>
                 ) 
         case "C++": 
             return(
                 <div className=''>
-                    <DiCode size={30} className="mx-auto"/>
+                    <DiCode size={30} className="mx-auto stroke-blue-500"/>
                     <div className='text-xs text-center'>C++</div>
                 </div>
                 ) 
         case "React": 
             return(
                 <div className=''>
-                    <DiReact size={30} className="mx-auto"/>
+                    <DiReact size={30} className="mx-auto stroke-blue-500"/>
                     <div className='text-xs text-center'>React</div>
                 </div>
                 ) 
