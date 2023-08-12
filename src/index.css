@@ -41,6 +41,37 @@ bottom: -20px;
     font-style: italic;
     text-decoration: underline;
 }
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #3b82f6;
+    height: 5px;
+    transform-origin: 0%;
+  }
+  .switch {
+    width: 60px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.4);
+    display: flex;
+    justify-content: flex-start;
+    border-radius: 50px;
+    align-items: center;
+    cursor: pointer;
+    padding: 0 5px;
+  }
+  
+  .switch[data-isOn="true"] {
+    justify-content: flex-end;
+  }
+  
+  .handle {
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 40px;
+  }
 
 @keyframes skeleton-loading {
     0%{

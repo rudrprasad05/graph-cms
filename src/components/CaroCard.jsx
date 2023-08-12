@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function CaroCard({cat}) {
 
   return (
-    <div className="rounded-md shadow overflow-clip text-center mr-5 mb-5 grid grid-rows-5" key={cat.id}>
+    <div className="rounded-md shadow overflow-clip text-center pb-5 mr-5 mb-5 grid grid-rows-5" key={cat.id}>
       
       
       <div className="bg-blue-500 relative row-span-2 ">
@@ -15,10 +15,10 @@ export default function CaroCard({cat}) {
       </div>
       <div></div>
       <div className="">
-        <p className="pt-3 capotalize">{cat.name}</p>
+        <p className="pb-3 capitalize">{cat.name}</p>
       </div>
       
-      <Link to={`/category/${cat.slug}`} className="bg-blue-500 rounded-lg w-min text-white whitespace-nowrap px-5 py-2 mx-auto mb-2">View Blogs</Link>
+      <Link to={`/category/?query=${cat.slug}&id=${cat.id}`} className="bg-blue-500 rounded-lg w-min text-white whitespace-nowrap px-5 py-2 mx-auto">View Blogs</Link>
   
   
     </div>

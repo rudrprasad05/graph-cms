@@ -3,17 +3,19 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import moment from 'moment'
 import copy from 'copy-to-clipboard'
-import {HiOutlineCalendar, HiOutlineClipboard, HiOutlineClipboardCheck } from 'react-icons/hi'
+import {HiOutlineCalendar, HiOutlineClipboard, HiOutlineClipboardCheck, HiLink } from 'react-icons/hi'
 
 const PostDetails = ({ post }) => {
 
   const [copyCode, setCopyCode] = useState(false)
 
+  
 
-
-  const handleCopy =() => {
+  const handleCopy =(e, temp) => {
+    const tempstring = temp.toString()
     if (!copyCode){
       setCopyCode(true)
+      copy(tempstring)
       
       console.log("code copied")
     }else{
@@ -21,6 +23,7 @@ const PostDetails = ({ post }) => {
       console.log("code NOT copied")
     }
   }
+  
 
     const getContentFragment = (index, text, obj, type) => {
         let modifiedText = text;
@@ -96,16 +99,13 @@ const PostDetails = ({ post }) => {
             case 'code-block':
               
               const temp = obj.children[0].text.split("\n")
-        
-           
-             
                 return(
-                  <pre>
+                  <pre key={index}>
                     <code className='rounded-md'>
                       <div className=' border border-gray-500 rounded-md overflow-clip'>
 
                         <div className='relative border-b bg-gray-700 border-gray-500 py-2 px-3'>
-                          <button className='absolute top-0 right-0 h-min pt-2 px-3' onClick={handleCopy}>
+                          <button className='absolute top-0 right-0 h-min pt-2 px-3' onClick={e => handleCopy(e, obj.children[0].text)}>
                             {copyCode ? <HiOutlineClipboardCheck strokeWidth={1} stroke={'white'} size={30}/> : <HiOutlineClipboard strokeWidth={1} stroke={'white'} size={30}/>}
                           </button>
                           <div className='text-white'>

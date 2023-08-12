@@ -4,14 +4,26 @@ import { Link } from 'react-router-dom'
 
 import { HiOutlineUser, HiOutlineCalendar, HiOutlineChevronDoubleRight } from 'react-icons/hi'
 
-const CategoryCards = ({post, postKey}) => {
+const CategoryCards = ({post, postKey, search, array}) => {
 
+  // const [array, setarray] = useState(second)
   return (
 
-    <div className="relative rounded-md overflow-clip bg-black h-full drop-shadow-lg" key={postKey}>
+    <>
 
+      <div className='mb-2 absolute top-0'>
+        {search && <p className='text-blue-600'><span className='italic text-black'>Showing results for: </span>{`${search}`} Found: {array.length} results</p>}
+      </div>
+
+      <div className={`relative rounded-md overflow-clip bg-black h-full drop-shadow-lg ${search ? "mt-10" : "mt-0"}`} key={postKey}>
+
+    
       <div className='h-full w-full'>
-        <img src={post.featuredImage.url} alt="" className=' h-full w-full relative z-10 opacity-50 object-cover'/>
+
+        <Link to={`/blog/${post.slug}`}>
+          <img src={post.featuredImage.url} alt="" className=' h-full w-full relative z-10 opacity-50 object-cover'/>
+        </Link>
+        
       </div>
 
       <div className='z-20 absolute bottom-0 px-8 py-4 text-white flex w-full'>
@@ -62,6 +74,10 @@ const CategoryCards = ({post, postKey}) => {
 
       
     </div>
+    
+    </>
+
+    
   )
 }
 

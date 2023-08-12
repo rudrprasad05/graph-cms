@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "copy-to-clipboard": "^3.3.3",
-    "framer-motion": "^10.14.0",
+    "framer-motion": "^10.15.1",
     "graphql": "^16.7.1",
     "graphql-request": "^6.1.0",
     "html-react-parser": "^4.2.0",

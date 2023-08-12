@@ -11,6 +11,7 @@ const PostWidget = ({ catergories, slug}) => {
   const [relatedPosts, setRelatedPosts] = useState(null)
 
   useEffect(() => {
+    
     if(slug){
       getSimilarPosts(catergories, slug)
         .then((result) => setRelatedPosts(result))
@@ -66,8 +67,8 @@ const PostWidget = ({ catergories, slug}) => {
   
   
   return (
-    <div className='rounded-md bg-gray-200  py-5 shadow-lg mb-5'>
-      <h3 className='px-8 pb-2'>{slug ? "Related Posts": "Recent Posts"}</h3>
+    <div className='rounded-md bg-blue-300  py-5 shadow-lg mb-5'>
+      <h3 className='px-8 pb-2 text-black text-xl'>{slug ? "Related Posts": "Recent Posts"}</h3>
       {recentPosts && recentPosts.map((post) => (
         <div key={post.slug} className="w-4/5 mx-auto bg-white relative">
           <div className='absolute top-0 left-0'>
@@ -83,18 +84,22 @@ const PostWidget = ({ catergories, slug}) => {
         </div>
       ))}
 
-      {relatedPosts && relatedPosts.map((post) => (
-        <div key={post.slug} className="w-4/5 mx-auto  relative bg-black rounded-md overflow-clip">
+      {relatedPosts && relatedPosts.slice(0,4).map((post) => (
+        <div key={post.slug} className="w-4/5 mx-auto relative bg-black rounded-md overflow-clip my-3">
           <div className=''>
-            <img 
-              src={post.featuredImage.url} 
-              alt={post.title} 
-              className='opacity-50 object-cover w-full h-full rounded-md hover:scale-125 transition'/>
+            <Link to={`/blog/${post.slug}`}>
+              <img 
+                src={post.featuredImage.url} 
+                alt={post.title} 
+                className='opacity-50 object-cover w-full h-full rounded-md  transition'/>
+            </Link>
+            
           </div>
-          
-          <div className='absolute left-0 w-full text-center py-2 text-white top-1/2 -translate-y-2/4'>
-            {post.title}
-          </div>
+          <Link to={`/blog/${post.slug}`}>
+            <div className='absolute left-0 w-full text-center py-2 text-white top-1/2 -translate-y-2/4'>
+              {post.title}
+            </div>
+          </Link>
           
         </div>
       ))}
