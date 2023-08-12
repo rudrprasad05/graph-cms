@@ -48,12 +48,12 @@ const PostDetails = ({ post }) => {
     
         switch (type) {
           case 'heading-one':
-            return <h3 key={index} className="text-xl font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h3>;
+            return <p key={index} className="text-4xl text-blue-500 mb-2">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</p>;
+          case 'heading-two':
+            return <h3 key={index} className="text-2xl font-semibold mb-2">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h3>;
           case 'paragraph':
             return <p key={index} className="mb-8">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</p>;
             
-          case 'heading-four':
-            return <h4 key={index} className="text-md font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h4>;
           case 'link':
             return <a key={index} className="mb-8">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</a>;
             
@@ -63,8 +63,6 @@ const PostDetails = ({ post }) => {
               <img
                 key={index}
                 alt={obj.title}
-                height={obj.height}
-                width={obj.width}
                 src={obj.src}
                 className="rounded-md shadow-md"
               />
@@ -118,7 +116,7 @@ const PostDetails = ({ post }) => {
                            
                             return(
                               <div className='flex gap-5' key={i}>
-                                <div className='text-gray-500'>
+                                <div className='text-gray-500 select-none'>
                                   {i + 1}
                                 </div>
                                 <div className='grow'>
@@ -169,7 +167,7 @@ const PostDetails = ({ post }) => {
                     </div>
                     <div className='flex gap-2 items-center'>
                         <span className='flex items-center justify-center'>
-                            <HiOutlineCalendar className='stroke-blue-500' size={20}/>
+                            <HiOutlineCalendar className='stroke-blue-500' size={35} strokeWidth={1.2}/>
                         </span>
                         <span className='italic text-gray-400'>
                             {moment(post.createdAt).format("DD MMM YYYY")} 
@@ -202,3 +200,7 @@ const PostDetails = ({ post }) => {
 }
 
 export default PostDetails
+
+
+
+

@@ -21,12 +21,7 @@ const Categories = () => {
     const [tagID, settagID] = useState(searchParam.get('id'))
 
     const [numberOfItemsSearched, setnumberOfItemsSearched] = useState(0)
-    const displayCount = (search, array) => {
-      console.log(search, array)
-      
-      
-     
-    }
+   
 
     const handleTagClick = (event, id, name) => {
       if(!tagState || id!=tagID ){
@@ -160,12 +155,11 @@ const Categories = () => {
               {!tagName && categories && categories.posts.filter((item) => {
         
                 const temptitle = item.title.toLowerCase()
+      
                 return search.toLowerCase() === "" ? item : temptitle.includes(search)
                 
               }).map((a, i, row) => {
-                if(i + 1 == row.length){
-                  displayCount(search, row)
-                }
+             
                 return(
                   <CategoryCards post={a} postKey={i} search={search} array={row}/>
                 )

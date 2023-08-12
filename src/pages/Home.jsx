@@ -8,6 +8,7 @@ import { useState } from 'react'
 
 import  { request, gql } from 'graphql-request'
 import { Helmet } from 'react-helmet'
+import Footer from '../components/Footer'
 
 
 
@@ -95,6 +96,7 @@ const Home = () => {
         {post.node.isFeatured ? <FeaturedPosts post={post}/> : <p></p>}
       </div>)
       )}
+      <Footer/>
     </>
     
     

@@ -12,7 +12,11 @@ const CategoryCards = ({post, postKey, search, array}) => {
     <>
 
       <div className='mb-2 absolute top-0'>
-        {search && <p className='text-blue-600'><span className='italic text-black'>Showing results for: </span>{`${search}`} Found: {array.length} results</p>}
+        {search && <p className='text-blue-600'>
+          <span className='italic text-black'>
+            Showing results for: 
+          </span> {`${search}`} 
+          <span className='italic text-black ml-2'>Found: </span> {array.length} results</p>}
       </div>
 
       <div className={`relative rounded-md overflow-clip bg-black h-full drop-shadow-lg ${search ? "mt-10" : "mt-0"}`} key={postKey}>
