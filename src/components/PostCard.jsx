@@ -49,15 +49,19 @@ const PostCard = ({post}) => {
 
         </div>
 
-        <div className='flex items-end md:text-base text-sm'>
-          <Link className='flex gap-2' to={`/blog/${post.node.slug}`}>
-            <span className='md:p-0 md:bg-transparent py-1 px-2 bg-blue-500 rounded-lg'>Read More</span>
-            <span className='flex md:block hidden'>
-              <HiOutlineChevronDoubleRight className='h-min w-min mt-1 stroke-blue-300'/>
+        <div className='flex items-end items-center justify-between'>
+            <Link className='flex gap-2' to={`/blog/${post.node.slug}`}>
+              <span class="md:p-0 md:bg-transparent py-1 px-2 bg-blue-500 rounded-lg text-sm">Read More</span>
+              <span className=' md:flex  hidden'>
+                <HiOutlineChevronDoubleRight className='h-min w-min mt-1 stroke-blue-300'/>
+              </span>
+            </Link>
+            <span class="md:hidden block text-sm px-2">
+           
+              {moment(post.node.createdAt).format("DD MMM YYYY")} 
+                
             </span>
-          </Link>
-        </div>
-        
+          </div>
 
 
       </div>  

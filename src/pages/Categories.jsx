@@ -7,6 +7,7 @@ import { useParams, useSearchParams } from 'react-router-dom'
 import CategoryCards from '../components/CategoryCards'
 
 import { HiSearch, HiX } from 'react-icons/hi'
+import Footer from '../components/Footer'
 
 const Categories = () => {
     const {id} = useParams()
@@ -111,17 +112,18 @@ const Categories = () => {
             {!id ? (
             <div className='w-4/5 mx-auto '>
               <h1 className='text-center text-5xl text-blue-500'>Categories</h1>
-              <div className='flex  mt-10 mb-5 '>
-                <div className='flex grow gap-5 items-center '>
+              <div className='md:flex block mt-10 mb-5 '>
+                <div className='md:flex grid grid-cols-3 grow gap-2 items-center md:mb-0 mb-5'>
                   <p>Tags: </p>
                  
                   {categories && categories.catergories.map((item, index) => {
                     return(
                       <button 
                         key={item.id}
-                        className={`${tagState && tagID == item.id ? "text-blue-500" : "text-black"} rounded-full border-2 flex gap-2 items-center px-4 py-1 ${tagState ? (tagID == item.id ? "border-blue-500" : "border-gray-500") : "border-gray-500"}`}
+                        className={` ${tagState && tagID == item.id ? "text-blue-500" : "text-black"} rounded-full border-2 flex gap-2 items-center px-4 py-1 ${tagState ? (tagID == item.id ? "border-blue-500" : "border-gray-500") : "border-gray-500"} md:text-base text-sm`}
                         onClick={e => handleTagClick(e, item.id, item.name)}>
-                        {item.name}
+                          <span className='grow'>{item.name}</span>
+                        
                         {(tagState && tagID == item.id) ?  
                           <div><HiX color='#fda4af'/></div> : ""}
                       </button>
@@ -133,7 +135,7 @@ const Categories = () => {
                   <input 
                     type="text" 
                     placeholder='Search Category'
-                    className='focus:outline-none'
+                    className='focus:outline-none grow'
                     value={search}
                     onChange={e => setSearchFunction(e)}
                   />
@@ -150,9 +152,9 @@ const Categories = () => {
               </div>
             )}
             
-            <div className='grid md:grid-cols-2  grid-cols-1 gap-10 w-4/5 mx-auto relative'>
+            <div className='grid md:grid-cols-2  grid-cols-1 gap-10 w-4/5 mx-auto relative mb-16'>
               
-              {!tagName && categories && categories.posts.filter((item) => {
+              {!tagName && categories ? categories.posts.filter((item) => {
         
                 const temptitle = item.title.toLowerCase()
       
@@ -164,7 +166,7 @@ const Categories = () => {
                   <CategoryCards post={a} postKey={i} search={search} array={row}/>
                 )
               }
-              )}
+              ) : ""}
 
 
               {tagName && categories && categories.posts.filter((item) => {
@@ -179,11 +181,11 @@ const Categories = () => {
                 }
 
               }).map((a, i, row) => <CategoryCards post={a} postKey={i} search={tagName} array={row}/>
-              )}
+              ) }
               
             </div>
             
-        
+        <Footer/>
         </>
     
   )

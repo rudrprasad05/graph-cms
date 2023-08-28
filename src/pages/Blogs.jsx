@@ -83,7 +83,7 @@ const Blogs = () => {
       {post && 
         <div className='w-4/5 mx-auto text'>
 
-          <div className='grid grid-cols-12 gap-20'>
+          <div className='md:grid md:grid-cols-12 block gap-20'>
             <div className='col-span-8'>
               <PostDetails post={post}/>
               {/* <Author author={post.author}/> */}

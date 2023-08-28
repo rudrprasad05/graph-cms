@@ -48,9 +48,9 @@ const PostDetails = ({ post }) => {
     
         switch (type) {
           case 'heading-one':
-            return <p key={index} className="text-4xl text-blue-500 mb-2">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</p>;
+            return <p key={index} className="md:text-4xl text-2xl text-blue-500 mb-2">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</p>;
           case 'heading-two':
-            return <h3 key={index} className="text-2xl font-semibold mb-2">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h3>;
+            return <p key={index} className="md:text-2xl text-xl mb-2">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</p>;
           case 'paragraph':
             return <p key={index} className="mb-8">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</p>;
             
@@ -103,7 +103,7 @@ const PostDetails = ({ post }) => {
                       <div className=' border border-gray-500 rounded-md overflow-clip'>
 
                         <div className='relative border-b bg-gray-700 border-gray-500 py-2 px-3'>
-                          <button className='absolute top-0 right-0 h-min pt-2 px-3' onClick={e => handleCopy(e, obj.children[0].text)}>
+                          <button className='absolute top-0 right-0 h-min md:pt-2 pt-1 px-3' onClick={e => handleCopy(e, obj.children[0].text)}>
                             {copyCode ? <HiOutlineClipboardCheck strokeWidth={1} stroke={'white'} size={30}/> : <HiOutlineClipboard strokeWidth={1} stroke={'white'} size={30}/>}
                           </button>
                           <div className='text-white'>
@@ -153,28 +153,28 @@ const PostDetails = ({ post }) => {
               {/* title section */}
 
               <div>
-                  <div className='text-5xl text-blue-500 mb-8'>
+                  <div className='md:text-5xl text-3xl  text-blue-500 mb-8'>
                       {post.title}
                   </div>
                   <div className=' my-5 flex gap-5 '>
                     <div className='flex gap-2 items-center'>
                         <div className='rounded-full border-2 border-blue-500'>
-                            <img src={post.author.photo.url} alt=""className='w-8 h-8 object-cover rounded-full' />
+                            <img src={post.author.photo.url} alt=""className='w-6 h-6 object-cover rounded-full' />
 
                         </div>
                         
-                        <p className='italic text-gray-400'>{post.author.name}</p>
+                        <p className='italic text-gray-400 md:text-base text-sm'>{post.author.name}</p>
                     </div>
                     <div className='flex gap-2 items-center'>
                         <span className='flex items-center justify-center'>
                             <HiOutlineCalendar className='stroke-blue-500' size={35} strokeWidth={1.2}/>
                         </span>
-                        <span className='italic text-gray-400'>
+                        <span className='italic text-gray-400 md:text-base text-sm'>
                             {moment(post.createdAt).format("DD MMM YYYY")} 
                         </span>
                     </div>
                   </div>
-                  <div className='text-lg'>{post.excert}</div>
+                  <div className='md:text-lg text-sm'>{post.excert}</div>
                   <div className='mt-5 mb-8'>
                       <img src={post.featuredImage.url} alt="" className='shadow-md rounded-md'/>
                   </div>
@@ -184,7 +184,7 @@ const PostDetails = ({ post }) => {
               
               {/* content section */}
 
-              <div className='text-lg text-justify'>
+              <div className='md:text-lg text-sm text-justify'>
                   {post.content.raw.children.map((typeObj, index) => {
                       const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
 
